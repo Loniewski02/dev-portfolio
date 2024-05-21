@@ -40,7 +40,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [Solution](https://www.frontendmentor.io/solutions/dev-portfolio-RQmWsEyilF)
-- Live Site URL: [Live](https://loniewski02.github.io/portfolio/)
+- Live Site URL: [Live](https://loniewski02.github.io/dev-portfolio/)
 
 ## My process
 
