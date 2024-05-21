@@ -1,0 +1,131 @@
+.nav {
+	padding: 1.3em 1em 2em;
+	background-color: transparent;
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+	z-index: 10;
+}
+
+.nav.foot {
+	padding: 0;
+	position: relative;
+}
+
+.nav.foot > div {
+	padding-top: 4.8rem;
+	border-top: 1px solid var(--light-grey);
+}
+
+.nav > div {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+}
+
+.nav p {
+	color: var(--white);
+	font-size: 2.4rem;
+	line-height: 32px;
+	font-weight: 700;
+	text-decoration: none;
+}
+
+.nav__links {
+	display: flex;
+	justify-content: center;
+	margin-top: 1.3em;
+	gap: 1.6em;
+}
+
+.nav__links a {
+	position: relative;
+	display: flex;
+	align-items: center;
+	text-decoration: none;
+}
+
+.nav__links a:after,
+.nav__links a:before {
+	content: '';
+	position: absolute;
+	bottom: -10px;
+	height: 2px;
+	width: 0;
+	background-color: var(--green);
+	transition: width 0.3s;
+}
+
+.nav__links a:after {
+	right: 50%;
+}
+
+.nav__links a:before {
+	left: 50%;
+}
+.nav__links a:hover {
+	animation: a 0.5s forwards;
+}
+
+.nav__links a:hover:after,
+.nav__links a:hover:before {
+	width: 50%;
+}
+
+.nav__links a:focus {
+	outline: none;
+	animation: a 0.5s forwards;
+}
+
+.nav__links a > img {
+	display: block;
+	width: 20px;
+	height: 100%;
+}
+
+@media (min-width: 576px) {
+	.nav {
+		padding: 2em 1em;
+	}
+
+	.nav > div {
+		flex-direction: row;
+		justify-content: space-between;
+	}
+
+	.nav__heading {
+		font-size: 3.2rem;
+	}
+
+	.nav__links {
+		margin-top: 0;
+		gap: 2em;
+	}
+
+	.nav__links a > img {
+		width: 24px;
+	}
+}
+
+@media (min-width: 768px) {
+	.nav {
+		padding: 2em;
+	}
+}
+
+@media (min-width: 992px) {
+	.nav {
+		padding: 2.5em 2em;
+	}
+}
+
+@media (min-width: 1200px) {
+	.nav__links a:last-child {
+		margin-right: 2em;
+	}
+
+	.nav.foot .nav__links a:last-child {
+		margin-right: 0;
+	}
+}

@@ -1,0 +1,17 @@
+.footer {
+	position: relative;
+	padding: 3.7em 1em;
+	background-color: var(--dark-grey);
+}
+
+@media (min-width: 768px) {
+	.footer {
+		padding: 3.7em 2em 4em;
+	}
+}
+
+@media (min-width: 992px) {
+	.footer {
+		padding: 5.2em 2em 5.8em;
+	}
+}

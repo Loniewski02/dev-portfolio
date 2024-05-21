@@ -1,0 +1,121 @@
+.link {
+	position: relative;
+	font-size: 1.3rem;
+	padding: 0.5em 0.1em;
+	width: max-content;
+	background-color: transparent;
+	color: var(--white);
+	font-weight: 700;
+	text-decoration: none;
+	text-transform: uppercase;
+	letter-spacing: 2.3px;
+	background-color: transparent;
+	border: none;
+	transition: color 0.3s;
+	cursor: pointer;
+	z-index: 10;
+}
+
+.link span {
+	position: absolute;
+	display: block;
+	bottom: 0px;
+	left: 0;
+	width: 100%;
+	height: 3px;
+	background-color: var(--green);
+	transition: height 0.3s;
+	overflow: hidden;
+	z-index: -1;
+}
+
+.link span::before {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	height: 3px;
+	width: 20px;
+	animation: indicator 1s infinite;
+	background-color: var(--light-grey);
+}
+
+.link span::after {
+	display: none;
+	content: '';
+	position: absolute;
+	top: -50%;
+	left: -50%;
+	height: 200%;
+	width: 30px;
+	transform: rotate(40deg);
+	animation: indicatorH 1s 0.5s;
+	background-color: var(--light-grey);
+	opacity: 0.7;
+}
+
+.link:hover {
+	color: var(--black);
+}
+
+.link:hover span::before {
+	display: none;
+}
+
+.link:hover span::after {
+	display: block;
+}
+
+.link:focus span,
+.link:hover span {
+	height: 100%;
+}
+
+.link a:focus {
+	outline: none;
+}
+
+@media (min-width: 375px) {
+	.link {
+		display: inline-block;
+		font-size: 1.6rem;
+	}
+}
+
+@keyframes indicator {
+	0% {
+		left: 0;
+	}
+	30% {
+		width: 20%;
+	}
+	65% {
+		width: 25%;
+	}
+	90% {
+		width: 15%;
+	}
+
+	100% {
+		left: 100%;
+	}
+}
+
+@keyframes indicatorH {
+	0% {
+		left: -50%;
+	}
+	30% {
+		width: 20%;
+	}
+	65% {
+		width: 25%;
+	}
+	90% {
+		width: 15%;
+	}
+
+	100% {
+		left: 150%;
+	}
+}

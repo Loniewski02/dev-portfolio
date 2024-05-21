@@ -1,0 +1,122 @@
+.form__box {
+	position: relative;
+}
+
+.form__box.active label,
+.form__box.valid label {
+	color: var(--green);
+}
+.form__box.active input,
+.form__box.active textarea,
+.form__box.valid input,
+.form__box.valid textarea {
+	border-bottom: 1px solid var(--green);
+}
+
+.form__box.error label {
+	color: var(--error-color);
+}
+
+.form__box.error input,
+.form__box.error textarea {
+	border-bottom: 1px solid var(--error-color);
+}
+
+.form__box label {
+	position: absolute;
+	left: 1em;
+	color: var(--white);
+	font-size: 1.6rem;
+	line-height: 1.6rem;
+	text-transform: uppercase;
+	background-color: var(--dark-grey);
+	opacity: 0.5;
+	transition: position 0.3s;
+	cursor: text;
+}
+
+.form__box input,
+.form__box textarea {
+	display: block;
+	padding: 0 1em 1.5em;
+	font-family: inherit;
+	color: var(--white);
+	font-size: 1.6rem;
+	background: transparent;
+	border: 1px solid transparent;
+	border-bottom: 1px solid var(--white);
+	width: 100%;
+}
+
+.form__box input:focus,
+.form__box textarea:focus {
+	outline: none;
+	background-color: transparent;
+}
+
+.form__box input:-webkit-autofill,
+.form__box input:-webkit-autofill:focus,
+.form__box input:-webkit-autofill:hover,
+.form__box textarea:-webkit-autofill,
+.form__box textarea:-webkit-autofill:focus,
+.form__box textarea:-webkit-autofill:hover {
+	border-left: 1px solid var(--dark-grey);
+	border-top: 1px solid var(--dark-grey);
+	border-right: 1px solid var(--dark-grey);
+	-webkit-text-fill-color: var(--white);
+	-webkit-box-shadow: 0 0 0 1000px var(--dark-grey) inset;
+}
+
+.form__box textarea {
+	min-width: 100%;
+	max-width: 100%;
+	min-height: 107px;
+	height: 107px;
+	resize: vertical;
+}
+
+.error-info {
+	position: absolute;
+	right: 0;
+	bottom: -2em;
+	font-size: 1.4rem;
+	color: var(--error-color);
+	transition: transform 0.3s;
+	cursor: default;
+}
+.error-info:first-letter {
+	text-transform: uppercase;
+}
+.error-ico {
+	position: absolute;
+	bottom: 1em;
+	right: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	gap: 2px;
+	width: 24px;
+	height: 24px;
+	border: 1px solid var(--error-color);
+	border-radius: 50%;
+}
+
+.error-ico-sign {
+	margin: -2px 0 2px;
+	transform: rotate(90deg);
+	width: 8px;
+	height: 2px;
+	border-radius: 1em;
+	background-color: var(--error-color);
+}
+
+.error-ico-sign:before {
+	content: '';
+	position: absolute;
+	transform: translateX(500%);
+	width: 2px;
+	height: 2px;
+	border-radius: 50%;
+	background-color: var(--error-color);
+}

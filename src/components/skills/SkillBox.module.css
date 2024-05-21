@@ -1,0 +1,42 @@
+.skill__box {
+	text-align: center;
+}
+.skill__box h3 {
+	color: var(--white);
+	font-size: 3.2rem;
+}
+.skill__box p {
+	margin-top: 0.5rem;
+	color: var(--light-grey);
+}
+
+@media (min-width: 576px) {
+	.skill__box {
+		width: 50%;
+	}
+
+	.skill__box h3 {
+		font-size: 3.6rem;
+	}
+}
+
+@media (min-width: 768px) {
+	.skill__box {
+		text-align: left;
+	}
+
+	.skill__box h3 {
+		font-size: 4.8rem;
+	}
+
+	.skill__box p {
+		margin-top: 1.4rem;
+		font-size: 1.8rem;
+	}
+}
+
+@media (min-width: 992px) {
+	.skill__box {
+		width: 30.5%;
+	}
+}
