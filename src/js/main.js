@@ -6,9 +6,9 @@ let allInputs;
 let sendBtn;
 let backBtn;
 
+const skillsContainer = document.querySelector('.skills__boxes');
 const projectsBoxes = document.querySelector('.projects__boxes');
 let aosPosition;
-const URL = 'https://portfoliov2-b0eed-default-rtdb.firebaseio.com/cheapData.json';
 const reLetters = /^[a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ\s]*$/;
 
 const emailjsConfig = {
@@ -20,7 +20,8 @@ const emailjsConfig = {
 const main = () => {
 	prepareDOMElements();
 	prepareDOMEvents();
-	handleData();
+	fetchProjects();
+	fetchSkills();
 };
 
 const prepareDOMElements = () => {
@@ -69,42 +70,39 @@ const prepareDOMEvents = () => {
 	});
 };
 
-function sendEmail() {
-	const name = nameInput.value;
-	const email = emailInput.value;
-	const message = msgTextarea.value;
-
-	emailjs
-		.send(
-			emailjsConfig.service_id,
-			emailjsConfig.template_id,
-			{
-				from_name: name,
-				from_email: email,
-				message: message,
-			},
-			emailjsConfig.user_id
-		)
-		.then(
-			function (response) {
-				console.log(response);
-				alert('The message was sent.');
-			},
-			function (error) {
-				console.error(error);
-				alert('Sorry, there was an error while sending the message.');
-			}
-		);
-}
-
-async function handleData() {
-	const response = await axios.get(URL);
+async function fetchProjects() {
+	const response = await axios.get('https://portfoliov2-b0eed-default-rtdb.firebaseio.com/cheapData.json');
 	try {
 		createProjects(response.data);
 	} catch (error) {
 		console.error(error);
 	}
 }
+
+const fetchSkills = async () => {
+	const response = await axios.get('https://portfoliov2-b0eed-default-rtdb.firebaseio.com/skills.json');
+	try {
+		createSkillBox(response.data);
+	} catch (error) {
+		console.error(error);
+	}
+};
+
+const createSkillBox = (data) => {
+	for (let i = 0; i < data.length; i++) {
+		let expTest = '';
+		if (data[i].exp < 1) expTest = 'Less Than a Year';
+		else if (data[i].exp === 1) expTest = '1 Year Experience';
+		else expTest = data[i].exp + ' Years Experience';
+
+		skillsContainer.innerHTML += `
+	<div class="skills__box" data-aos="fade-up" data-aos-anchor-placement="top-bottom" data-aos-delay="100">
+	<h3 class="skills__box-name">${data[i].name}</h3>
+	<p class="skills__box-desc">${expTest}</p>
+  </div>
+	`;
+	}
+};
 
 const createProjects = (data) => {
 	for (let i = 0; i < data.length; i++) {
@@ -218,7 +216,7 @@ const checkErrors = () => {
 	});
 
 	if (errorCount === 0) {
-		sendEmail();
+		alert('forgive me, but mailing service does not work on this site... :)');
 
 		allInputs.forEach((input) => {
 			input.value = '';
