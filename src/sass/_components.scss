@@ -1,0 +1,104 @@
+.wrapper {
+	position: relative;
+	margin: 0 auto;
+	max-width: 1110px;
+	width: 100%;
+}
+
+.back-btn {
+	position: fixed;
+	bottom: 1em;
+	right: 1em;
+	display: none;
+	padding: 1em;
+	width: 24px;
+	height: 24px;
+	border: 2px solid $green;
+	border-radius: 50%;
+	background-color: transparent;
+	cursor: pointer;
+	z-index: 9999;
+
+	&::before {
+		content: '';
+		position: absolute;
+		top: 40%;
+		left: 13%;
+		transform: rotate(135deg);
+		width: 15px;
+		height: 3px;
+		background-color: $green;
+	}
+
+	&::after {
+		content: '';
+		position: absolute;
+		top: 40%;
+		right: 13%;
+		transform: rotate(45deg);
+		width: 15px;
+		height: 3px;
+		background-color: $green;
+	}
+}
+
+.line {
+	width: 100%;
+	height: 1px;
+	background-color: $white;
+}
+
+.error-info {
+	position: absolute;
+	right: 0;
+	bottom: -0.8em;
+	transform: translate(110%, 102%);
+	font-size: 1.4rem;
+	color: $error-color;
+	transition: transform 0.3s;
+
+	&::first-letter {
+		text-transform: uppercase;
+	}
+}
+
+.error-ico {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	transform: translate(110%, -50%);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	gap: 2px;
+	width: 24px;
+	height: 24px;
+	border: 1px solid $error-color;
+	border-radius: 50%;
+
+	&-sign {
+		margin: -2px 0 2px;
+		transform: rotate(90deg);
+		width: 8px;
+		height: 2px;
+		border-radius: 1em;
+		background-color: $error-color;
+
+		&::before {
+			content: '';
+			position: absolute;
+			transform: translateX(500%);
+			width: 2px;
+			height: 2px;
+			border-radius: 50%;
+			background-color: $error-color;
+		}
+	}
+}
+
+.paragraph-styles {
+	font-size: 1.6rem;
+	color: $light-gray;
+	line-height: 2.6rem;
+}

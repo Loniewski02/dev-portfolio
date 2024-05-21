@@ -1,0 +1,120 @@
+@media (min-width: 375px) {
+	.header {
+		&__info {
+			&-link {
+				@include linkStyles(1.6rem);
+			}
+		}
+	}
+
+	.projects {
+		&__heading {
+			&-title {
+				font-size: 4rem;
+			}
+
+			&-link {
+				@include linkStyles(1.6rem);
+			}
+		}
+
+		&__box {
+			&-link {
+				@include linkStyles(1.6rem);
+			}
+		}
+	}
+
+	.footer {
+		&__contact {
+
+			&-form {
+				button {
+					@include linkStyles(1.6rem);
+				}
+			}
+		}
+	}
+}
+
+@media (min-width: 576px) {
+	.nav {
+		padding: 2em 1em;
+
+		.wrapper {
+			flex-direction: row;
+			justify-content: space-between;
+		}
+
+		&__heading {
+			font-size: 3.2rem;
+		}
+
+		&__box {
+			margin-top: 0;
+			gap: 2em;
+
+			&-link {
+				img {
+					width: 24px;
+				}
+			}
+		}
+	}
+
+	.header {
+		&__hero {
+			&-profile {
+				width: 250px;
+			}
+		}
+		&__info {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+
+			&-title {
+				font-size: 5rem;
+
+				span {
+					&::after {
+						bottom: 4px;
+						height: 5px;
+					}
+
+					&::before {
+						bottom: 4px;
+						height: 5px;
+					}
+				}
+			}
+
+			&-text {
+				font-size: 1.8rem;
+				max-width: 70%;
+			}
+		}
+	}
+
+	.skills {
+		.line--bottom {
+			display: none;
+		}
+
+		&__boxes {
+			flex-direction: row;
+			flex-wrap: wrap;
+			justify-content: center;
+			column-gap: 0;
+			row-gap: 3.4em;
+		}
+
+		&__box {
+			width: 50%;
+
+			&-name {
+				font-size: 3.6rem;
+			}
+		}
+	}
+}
